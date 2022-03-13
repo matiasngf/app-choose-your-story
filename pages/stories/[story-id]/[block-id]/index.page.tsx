@@ -18,7 +18,7 @@ const Page: NextPage<PageProps> = ({ id, block }) => {
   const { 'story-id': storyId } = router.query
   return (
     <Container className='py-10' key={id}>
-      <Fade direction cascade duration={700} triggerOnce>
+      <Fade cascade duration={700} triggerOnce>
         <div>
           {block.body.split('\n').map((line, index) => (
             <Text className='mb-4' key={index}>
