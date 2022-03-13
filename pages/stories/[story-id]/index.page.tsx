@@ -1,10 +1,10 @@
 import { Container } from '@/components/Container'
 import { Text } from '@/components/Text'
-import Link from 'next/link'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import stories from 'stories'
 import { StoryInterface } from 'stories/stories'
 import { useRouter } from 'next/router'
+import { Choice } from '@/components/Choice'
 
 interface PageProps {
   story: StoryInterface
@@ -16,15 +16,13 @@ const Page: NextPage<PageProps> = (props) => {
   return (
     <Container className='flex h-screen p-6'>
       <div className='m-auto text-center'>
-        <Text className='text-2xl'>{props.story.title}</Text>
+        <Text size='2xl' className='mb-4'>
+          {props.story.title}
+        </Text>
         <div>
-          <Link href={`/stories/${storyId}/start`}>
-            <a>
-              <Text fontType='sans' color='sky-600'>
-                Leer
-              </Text>
-            </a>
-          </Link>
+          <div className='flex justify-center'>
+            <Choice href={`/stories/${storyId}/start`}>Empezar</Choice>
+          </div>
         </div>
       </div>
     </Container>

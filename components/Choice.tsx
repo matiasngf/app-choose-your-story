@@ -13,7 +13,7 @@ export const Choice = ({
         <div className='p-4 border-2 border-indigo-400 rounded-md bg-indigo-100'>
           <Text
             color='indigo-700'
-            className='font-sans leading-normal mb-0 font-medium'
+            className='font-sans leading-normal font-medium'
           >
             {children}
           </Text>

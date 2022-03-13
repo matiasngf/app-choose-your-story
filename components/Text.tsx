@@ -10,14 +10,27 @@ const textConfig = {
     'slate-900': 'text-slate-900',
     'sky-600': 'text-sky-600',
     'indigo-700': 'text-indigo-700'
+  },
+  size: {
+    xs: 'text-xs',
+    sm: 'text-sm',
+    base: 'text-base',
+    lg: 'text-lg',
+    xl: 'text-xl',
+    '2xl': 'text-2xl',
+    '3xl': 'text-3xl',
+    '4xl': 'text-4xl',
+    '5xl': 'text-5xl',
+    '6xl': 'text-6xl'
   }
 }
 
 export interface TextProps {
   as?: string
   className?: string
-  fontType?: 'sans' | 'serif'
-  color?: 'slate-900' | 'sky-600' | 'indigo-700'
+  fontType?: keyof typeof textConfig.fontType
+  color?: keyof typeof textConfig.color
+  size?: keyof typeof textConfig.size
 }
 
 export const Text = React.forwardRef<
@@ -31,6 +44,7 @@ export const Text = React.forwardRef<
       as = 'div',
       fontType = 'serif',
       color = 'slate-900',
+      size = 'lg',
       ...props
     },
     ref
@@ -41,10 +55,10 @@ export const Text = React.forwardRef<
         ref={ref}
         {...props}
         className={classNames(
-          'text-lg leading-relaxed',
-          'mb-4',
+          'leading-relaxed',
           textConfig.fontType[fontType],
           textConfig.color[color],
+          textConfig.size[size],
           className
         )}
       >
