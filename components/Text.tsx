@@ -1,11 +1,23 @@
 import classNames from 'classnames'
 import React from 'react'
 
+const textConfig = {
+  fontType: {
+    sans: 'font-sans',
+    serif: 'font-serif'
+  },
+  color: {
+    'slate-900': 'text-slate-900',
+    'sky-600': 'text-sky-600',
+    'indigo-700': 'text-indigo-700'
+  }
+}
+
 export interface TextProps {
   as?: string
   className?: string
   fontType?: 'sans' | 'serif'
-  color?: string
+  color?: 'slate-900' | 'sky-600' | 'indigo-700'
 }
 
 export const Text = React.forwardRef<
@@ -31,8 +43,8 @@ export const Text = React.forwardRef<
         className={classNames(
           'text-lg leading-relaxed',
           'mb-4',
-          `font-${fontType}`,
-          `text-${color}`,
+          textConfig.fontType[fontType],
+          textConfig.color[color],
           className
         )}
       >
